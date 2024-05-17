@@ -46,11 +46,11 @@ npm install
 ```bash
 npm run start:dev
 ```
-O serviço cria automaticamente produtos fictícios ao iniciar. Ele verifica se um produto com o mesmo SKU já existe antes de criar um novo produto, para evitar duplicações.
+O serviço cria automaticamente produtos fictícios ao iniciar conforme quantidade configurada no env. Valida duplicações por SKU.
 
 ### MagentoService
 
-Este service é responsável por se comunicar com a API do Magento. métodos:
+Comunica com a API do Magento. métodos:
 
 - `getAccessToken(username: string, password: string): Promise<string>`: Obtém um token de acesso usando as credenciais do administrador.
 - `createProduct(productData: any, accessToken: string): Promise<any>`: Cria um novo produto no Magento.
@@ -58,7 +58,7 @@ Este service é responsável por se comunicar com a API do Magento. métodos:
 
 ### ProductService
 
-Este service é responsável por gerar produtos fictícios e verificar sua existência antes de criá-los. métodos:
+Gera produtos fictícios usando a lib [Faker](https://fakerjs.dev/guide/) e verifica sua existência antes de criá-los. métodos:
 
 - `generateProducts(numProducts: number)`: Gera um array de produtos fictícios.
 - `createFakeProducts(numProducts: number)`: Obtém um token de acesso, gera produtos fictícios e cria novos produtos no Magento, verificando a existência de cada produto antes de criá-lo.
