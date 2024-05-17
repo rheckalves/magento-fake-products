@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { ProductModule } from './product/product.module';
+import { HttpModule } from '@nestjs/axios';
+import { ProductService } from './product/product.service';
+import { MagentoService } from './common/services/magento.service';
+import { ClientService } from './client/client.service';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    ProductModule,
-  ],
+  imports: [HttpModule],
+  providers: [ProductService, MagentoService, ClientService],
 })
 export class AppModule {}
