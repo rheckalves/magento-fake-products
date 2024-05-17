@@ -38,12 +38,6 @@ NUM_PRODUCTS=10
 MAGENTO_API_URL=http://localhost:8080/rest/V1
 ```
 
-Ou substitua pelas credenciais do administrador do Magento.
-
-### Instalação
-
-1. Instale as dependências do projeto:
-
 ```bash
 npm install
 ```
@@ -54,15 +48,9 @@ npm run start:dev
 ```
 O serviço cria automaticamente produtos fictícios ao iniciar. Ele verifica se um produto com o mesmo SKU já existe antes de criar um novo produto, para evitar duplicações.
 
-### Listar Produtos (Opcional)
-
-Se desejar, você pode adicionar um endpoint para listar os produtos cadastrados no Magento.
-
-## Serviços
-
 ### MagentoService
 
-Este serviço é responsável por se comunicar com a API do Magento. Ele contém os seguintes métodos:
+Este service é responsável por se comunicar com a API do Magento. métodos:
 
 - `getAccessToken(username: string, password: string): Promise<string>`: Obtém um token de acesso usando as credenciais do administrador.
 - `createProduct(productData: any, accessToken: string): Promise<any>`: Cria um novo produto no Magento.
@@ -70,7 +58,7 @@ Este serviço é responsável por se comunicar com a API do Magento. Ele contém
 
 ### ProductService
 
-Este serviço é responsável por gerar produtos fictícios e verificar sua existência antes de criá-los. Ele contém os seguintes métodos:
+Este service é responsável por gerar produtos fictícios e verificar sua existência antes de criá-los. métodos:
 
 - `generateProducts(numProducts: number)`: Gera um array de produtos fictícios.
 - `createFakeProducts(numProducts: number)`: Obtém um token de acesso, gera produtos fictícios e cria novos produtos no Magento, verificando a existência de cada produto antes de criá-lo.
